@@ -1,0 +1,272 @@
+/* ── About.css ── */
+
+.about-section { background: var(--bg); position: relative; overflow: hidden; }
+
+/* Subtle radial bg accent */
+.about-section::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  top: -200px; right: -200px;
+  background: radial-gradient(circle, rgba(139,92,246,0.07), transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Section header ── */
+.section-header { text-align: center; margin-bottom: 3rem; }
+.section-desc { color: var(--text-muted); font-size: 1.05rem; max-width: 560px; margin: 0 auto; }
+
+/* ══════════════════════════════════════════════════════════
+   BENTO GRID
+   12-column grid; each tile spans a defined area to create
+   the asymmetric mosaic bento-box feel.
+══════════════════════════════════════════════════════════ */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.bento-tile {
+  padding: 1.6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative gradient blob inside each tile */
+.bento-tile::before {
+  content: '';
+  position: absolute;
+  width: 200px; height: 200px;
+  top: -80px; right: -60px;
+  border-radius: 50%;
+  background: var(--grad-hero);
+  opacity: 0.04;
+  pointer-events: none;
+  filter: blur(30px);
+}
+
+/* Grid areas for each tile */
+.tile-background   { grid-column: span 7; grid-row: span 2; }
+.tile-mission      { grid-column: span 5; }
+.tile-vision       { grid-column: span 5; }
+.tile-goals        { grid-column: span 5; grid-row: span 1; }
+.tile-education    { grid-column: span 7; }
+.tile-achievements { grid-column: span 12; }
+
+/* ── Tile internals ── */
+.tile-background {
+  padding: 0; /* Remove default padding so image can stretch at bottom */
+  display: flex;
+  flex-direction: row; /* Text on left, image on right */
+  align-items: stretch;
+}
+
+.tile-content-wrap {
+  padding: 1.8rem;
+  flex: 1.3; /* Let text area take up more space */
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.story-photo-wrapper {
+  flex: 0.8; /* Image takes the remaining 40% width */
+  min-height: 250px;
+  border-left: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+}
+
+.story-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center; /* Natural centering */
+  display: block;
+  transition: transform 0.4s var(--ease);
+}
+
+.tile-background:hover .story-photo {
+  transform: scale(1.05); /* Slight zoom effect on card hover */
+}
+
+.tile-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  margin-bottom: 0.75rem;
+}
+.tile-icon-wrap.blue   { background: rgba(59,130,246,0.12);  color: var(--blue); }
+.tile-icon-wrap.purple { background: rgba(139,92,246,0.12); color: var(--purple); }
+.tile-icon-wrap.green  { background: rgba(16,185,129,0.12);  color: var(--green); }
+
+.tile-title {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: var(--text);
+}
+
+.tile-body {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+/* ── Education timeline ── */
+.edu-timeline { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 0.5rem; }
+
+.edu-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.edu-dot {
+  flex-shrink: 0;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--grad-hero);
+  margin-top: 5px;
+  box-shadow: 0 0 10px rgba(59,130,246,0.5);
+}
+
+.edu-body { display: flex; flex-direction: column; gap: 0.3rem; }
+
+.edu-degree {
+  font-family: var(--font-head);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.edu-school {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ── Achievements ── */
+.achievements-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.achievement-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  transition: transform 0.2s var(--spring), box-shadow 0.2s;
+}
+.achievement-item:hover { transform: translateY(-3px); box-shadow: var(--glow-blue); }
+
+.ach-icon {
+  flex-shrink: 0;
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ach-icon.blue   { background: rgba(59,130,246,0.12);  color: var(--blue); }
+.ach-icon.purple { background: rgba(139,92,246,0.12); color: var(--purple); }
+.ach-icon.green  { background: rgba(16,185,129,0.12);  color: var(--green); }
+
+.ach-title {
+  font-family: var(--font-head);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+.ach-desc { font-size: 0.77rem; color: var(--text-muted); line-height: 1.6; }
+
+/* ── Stats strip ── */
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.stat-card {
+  padding: 1.4rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.stat-value {
+  font-family: var(--font-head);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ── Profile Photo ── */
+.profile-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.profile-photo {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--border);
+  box-shadow: var(--glow-blue);
+  transition: transform 0.3s var(--spring);
+}
+
+.profile-photo:hover {
+  transform: translateY(-8px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .tile-background {
+    flex-direction: column;
+  }
+  .story-photo-wrapper {
+    width: 100%;
+    min-height: 300px;
+    border-left: none;
+    border-top: 1px solid var(--border);
+  }
+  .bento-grid { grid-template-columns: 1fr 1fr; }
+  .tile-background, .tile-mission, .tile-vision, .tile-goals,
+  .tile-education, .tile-achievements { grid-column: span 2; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .bento-grid { grid-template-columns: 1fr; }
+  .tile-background, .tile-mission, .tile-vision, .tile-goals,
+  .tile-education, .tile-achievements { grid-column: span 1; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+}

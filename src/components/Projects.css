@@ -1,0 +1,189 @@
+/* ── Projects.css ── */
+
+.projects-section { background: var(--bg-2); position: relative; overflow: hidden; }
+
+.projects-section::before {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  top: -150px; right: -150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59,130,246,0.06), transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Grid: 2 columns on desktop, 1 on mobile ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+/* ── Card ── */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-color: var(--card-border, var(--border));
+  transition: transform 0.3s var(--spring), box-shadow 0.3s var(--ease), border-color 0.3s;
+}
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--card-glow, var(--glow-blue));
+}
+
+/* ── Image / placeholder ── */
+.project-img-placeholder {
+  position: relative;
+  height: 190px;
+  background: var(--card-accent, rgba(59,130,246,0.08));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Placeholder animated grid dots */
+.project-img-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.6;
+}
+
+.placeholder-icon {
+  position: relative;
+  z-index: 1;
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+.placeholder-text {
+  position: relative;
+  z-index: 1;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Gradient that fades image into card body */
+.img-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, var(--surface) 100%);
+  pointer-events: none;
+}
+
+/* ── Real project image ── */
+.project-img-container {
+  position: relative;
+  height: 190px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Card body ── */
+.project-body {
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.project-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.project-year {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.project-title {
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+.project-card:hover .project-title {
+  color: var(--card-title-hover, var(--blue));
+}
+
+.project-role {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.role-label { font-weight: 700; color: var(--text-2); }
+
+.project-desc {
+  font-size: 0.845rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.2rem;
+}
+
+/* ── Actions ── */
+.project-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 0.3rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  transition: color 0.2s, border-color 0.2s, transform 0.2s var(--spring), box-shadow 0.2s;
+}
+.project-link:hover {
+  color: var(--blue);
+  border-color: rgba(59,130,246,0.35);
+  transform: translateY(-2px);
+  box-shadow: var(--glow-blue);
+}
+
+.project-link-live:hover {
+  color: var(--green);
+  border-color: rgba(16,185,129,0.35);
+  box-shadow: var(--glow-green);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .projects-grid { grid-template-columns: 1fr; }
+}
