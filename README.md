@@ -1,57 +1,47 @@
-# Henna Marie S. Barcebal — Portfolio
+# Henna Marie Barcebal — Personal Portfolio
 
-A modern, animated single-page portfolio built with **React + Vite**.
+> **Information Technology Student | Project Manager & Software Developer**
 
-## 🚀 Run Locally
+Welcome to my personal portfolio repository! I'm a developer based in Davao City, Philippines. I build user-centric technology and lead teams that turn ideas into working systems. From full-stack web apps to AI-powered mobile tools, I bridge the gap between thoughtful design and clean, purposeful code.
+
+## 🚀 Built With
+
+This portfolio was designed and developed from scratch using:
+- **React & Vite**: For an ultra-fast, modern frontend development experience.
+- **Pure CSS3**: Custom animations, fluid typography, glassmorphism, and asymmetric bento-grid layouts.
+- **Lucide Icons**: Beautiful, clean vector icons.
+- **Responsive Design**: Mobile-first architecture ensuring a seamless viewing experience across all devices.
+
+## 💻 Featured Projects
+
+A quick look at some of the systems I've built and managed:
+- **Lamdag LMS**: A learning management system featuring AI-driven quiz generation built with Next.js and Supabase.
+- **IDRenew (Smart E-Waste App)**: A mobile app utilizing machine learning (TensorFlow Lite & MobileNetV2) to classify damaged device components.
+- **Palitab**: A gamified mobile learning app built with Flutter and Firebase to strengthen reading comprehension.
+- **UIC Health Inventory Management System**: An automated clinic inventory system built with React, Laravel, and MSSQL.
+
+## 🏃‍♂️ Running Locally
+
+To run this project on your local machine:
 
 ```bash
+# Clone the repository
+git clone https://github.com/barcebalhenna/my-portfolio-va.git
+
+# Navigate into the directory
+cd my-portfolio-va
+
+# Install dependencies
 npm install
+
+# Start the development server
 npm run dev
-# Open: http://localhost:5173
 ```
 
-## 🏗 Production Build
+## 📬 Let's Connect!
 
-```bash
-npm run build
-# Output: /dist  (deploy this folder anywhere)
-```
+I am always open to discussing new projects, internships, creative ideas, or opportunities to be part of something amazing.
 
-## 🌐 Deploy to Vercel
+- **GitHub**: [@barcebalhenna](https://github.com/barcebalhenna)
+- **Email**: barcebalhenna@gmail.com
 
-1. Push folder to a GitHub repo
-2. Go to vercel.com → New Project → Import repo
-3. Framework preset: **Vite** → Deploy ✅
-   (`vercel.json` handles SPA routing automatically)
-
-## ✏️ Editing Content
-
-Everything lives in **`src/portfolioData.js`** — update values there and the whole site reflects instantly.
-
-## 📸 Adding Your Assets (TODO)
-
-| File | Where to put it |
-|---|---|
-| Resume PDF | `public/resume.pdf` |
-| Profile photo | `public/assets/profile.jpg` |
-| Project screenshots | `public/assets/projects/*.png` |
-| OG social image | `public/og-image.png` (1200×630px) |
-| LinkedIn URL | `src/portfolioData.js` → `identity.linkedin` |
-
-To use project screenshots, open `src/components/Projects.jsx` and replace the `.project-img-placeholder` block with:
-```jsx
-<img src={project.image} alt={project.title} className="project-img" />
-```
-Then add the image path to each project in `portfolioData.js`.
-
-## 🎨 Changing Colors / Fonts
-
-Edit the CSS variables in `src/index.css` under `:root {}` (light mode) and `.dark {}` (dark mode).
-
-## ⚙️ How the Animations Work
-
-- **Scroll-reveal**: `useScrollReveal.js` runs an `IntersectionObserver` that adds `.visible` to every `.reveal` element as it enters the viewport, triggering the CSS fade/slide transition.
-- **Stagger**: Wrap children in `.stagger-parent` + give each child `.reveal` → they animate in with increasing `transition-delay`.
-- **Marquee**: Skills ticker doubles its list and uses `animation: marquee` (infinite translate) for a seamless loop.
-- **Proficiency bars**: Each `.prof-bar` has `--w` set to its percentage. Width transitions from `0` → `var(--w)` when the parent `.reveal` gets `.visible`.
-- **Dark mode**: Toggling `.dark` on `<html>` instantly swaps all CSS custom properties — no JS repaints needed.
