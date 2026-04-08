@@ -6,7 +6,7 @@ Welcome to my personal portfolio repository! I'm a developer based in Davao City
 
 ## 🚀 Built With
 
-This portfolio was designed and developed from scratch using:
+This portfolio was designed and developed using:
 - **React & Vite**: For an ultra-fast, modern frontend development experience.
 - **Pure CSS3**: Custom animations, fluid typography, glassmorphism, and asymmetric bento-grid layouts.
 - **Lucide Icons**: Beautiful, clean vector icons.
